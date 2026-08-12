@@ -107,6 +107,7 @@ python app.py
 ```
 marine-manual-search/
 ├─ app.py                  # 전체 앱 (색인·검색·GUI)
+├─ PROBLEM_STATEMENT.md    # 문제 정의서 (도메인·문제·가설·사용자·성공기준)
 ├─ MODEL_SELECTION.ipynb   # 모델 선정 근거 (대안 비교·실측 수치)
 ├─ requirements.txt        # 의존성
 ├─ run.bat                 # Windows 실행 스크립트
