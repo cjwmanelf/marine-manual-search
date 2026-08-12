@@ -28,7 +28,6 @@
 | 이미지 검색 결과 (도면·표) | ![이미지 검색](screenshots/02_image_search.png) |
 | 텍스트 검색 결과 (다국어 의미) | ![텍스트 검색](screenshots/03_text_search.png) |
 | 매뉴얼 세트 선택 | ![세트 선택](screenshots/04_sets.png) |
-| (선택) before/after 비교 | ![비교](screenshots/05_comparison.png) |
 
 ---
 
