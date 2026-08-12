@@ -799,7 +799,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="선박기기 매뉴얼 하이브리드 검색")
     parser.add_argument("--share", action="store_true",
-                        help="Gradio 임시 공개 링크(72시간) 생성 — 발표·시연용 데모 배포")
+                        help="Gradio 임시 공개 링크(최대 1주일) 생성 — 발표·시연용 데모 배포")
     parser.add_argument("--host", default="127.0.0.1",
                         help="바인드 주소. 사내망(LAN) 공유는 0.0.0.0")
     parser.add_argument("--port", type=int, default=7860, help="포트 (기본 7860)")
