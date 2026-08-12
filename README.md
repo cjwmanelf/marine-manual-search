@@ -32,6 +32,8 @@
 
 ---
 
+> 📓 **모델을 왜 이렇게 골랐는지**(대안 비교·실측 수치)는 [`MODEL_SELECTION.ipynb`](MODEL_SELECTION.ipynb) 참고.
+
 ## 🧠 적용 기술 · 모델
 
 | 구분 | 이름 | 역할 |
@@ -105,11 +107,12 @@ python app.py
 
 ```
 marine-manual-search/
-├─ app.py            # 전체 앱 (색인·검색·GUI)
-├─ requirements.txt  # 의존성
-├─ run.bat           # Windows 실행 스크립트
-├─ screenshots/      # README용 스크린샷
-└─ indexes/          # (git 제외) 세트별 색인 데이터 — indexes/<세트>/{index.npz, crops/, pages/}
+├─ app.py                  # 전체 앱 (색인·검색·GUI)
+├─ MODEL_SELECTION.ipynb   # 모델 선정 근거 (대안 비교·실측 수치)
+├─ requirements.txt        # 의존성
+├─ run.bat                 # Windows 실행 스크립트
+├─ screenshots/            # README용 스크린샷
+└─ indexes/                # (git 제외) 세트별 색인 데이터 — indexes/<세트>/{index.npz, crops/, pages/}
 ```
 
 ## 🔬 동작 원리 (파이프라인)
