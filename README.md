@@ -5,7 +5,7 @@
 
 > 외부 API·인터넷 통신 없이 로컬에서만 동작합니다. AI 모델 가중치는 최초 1회만 내려받고 이후 오프라인으로 동작합니다.
 
-📚 **문서**: [문제 정의서](PROBLEM_STATEMENT.md) · [모델 선정 근거](MODEL_SELECTION.ipynb) · [개선 효과 검증](EVALUATION.ipynb)
+📚 **문서**: [문제 정의서](PROBLEM_STATEMENT.md) · [모델 선정 근거](MODEL_SELECTION.ipynb) · [개선 효과 검증](EVALUATION.ipynb) · [한계·다음 단계·배포](LIMITATIONS_AND_ROADMAP.md)
 
 ---
 
@@ -112,6 +112,7 @@ marine-manual-search/
 ├─ PROBLEM_STATEMENT.md    # 문제 정의서 (도메인·문제·가설·사용자·성공기준)
 ├─ MODEL_SELECTION.ipynb   # 모델 선정 근거 (대안 비교·실측 수치)
 ├─ EVALUATION.ipynb        # 개선 효과 검증 (키워드 vs 의미검색 hit@5·속도)
+├─ LIMITATIONS_AND_ROADMAP.md  # 한계·다음 단계·데모 배포
 ├─ requirements.txt        # 의존성
 ├─ run.bat                 # Windows 실행 스크립트
 ├─ screenshots/            # README용 스크린샷

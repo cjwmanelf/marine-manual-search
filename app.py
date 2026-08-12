@@ -795,7 +795,22 @@ def build_ui():
 
 
 if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(description="선박기기 매뉴얼 하이브리드 검색")
+    parser.add_argument("--share", action="store_true",
+                        help="Gradio 임시 공개 링크(72시간) 생성 — 발표·시연용 데모 배포")
+    parser.add_argument("--host", default="127.0.0.1",
+                        help="바인드 주소. 사내망(LAN) 공유는 0.0.0.0")
+    parser.add_argument("--port", type=int, default=7860, help="포트 (기본 7860)")
+    args = parser.parse_args()
+
     print(f"[정보] 실행환경 device={DEVICE} / YOLO={YOLO_DEVICE} / 검출={LAYOUT_AVAILABLE} / OCR={OCR_AVAILABLE}", flush=True)
-    print("[준비] 웹 서버를 시작합니다. 곧 브라우저가 자동으로 열립니다...", flush=True)
-    print("       (아래에 http://127.0.0.1:7860 주소가 나오면 준비 완료입니다)", flush=True)
-    build_ui().launch(inbrowser=True)
+    if args.share:
+        print("[배포] 임시 공개 링크(share)를 생성합니다. ⚠️ 사내 매뉴얼은 올리지 마세요(외부 공개됨).", flush=True)
+    elif args.host == "0.0.0.0":
+        print(f"[배포] 사내망 공유 모드. 같은 네트워크에서 http://<내PC IP>:{args.port} 로 접속하세요.", flush=True)
+    else:
+        print(f"[준비] 웹 서버를 시작합니다. 브라우저가 자동으로 열립니다 (http://127.0.0.1:{args.port})", flush=True)
+    build_ui().launch(server_name=args.host, server_port=args.port,
+                      share=args.share, inbrowser=not args.share)
