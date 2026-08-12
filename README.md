@@ -114,7 +114,8 @@ marine-manual-search/
 ├─ EVALUATION.ipynb        # 개선 효과 검증 (키워드 vs 의미검색 hit@5·속도)
 ├─ LIMITATIONS_AND_ROADMAP.md  # 한계·다음 단계·데모 배포
 ├─ requirements.txt        # 의존성
-├─ run.bat                 # Windows 실행 스크립트
+├─ run.bat                 # Windows 실행 (로컬)
+├─ run_share.bat           # Windows 실행 (공유 링크 데모 — --share)
 ├─ screenshots/            # README용 스크린샷
 └─ indexes/                # (git 제외) 세트별 색인 데이터 — indexes/<세트>/{index.npz, crops/, pages/}
 ```

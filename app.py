@@ -803,6 +803,8 @@ if __name__ == "__main__":
     parser.add_argument("--host", default="127.0.0.1",
                         help="바인드 주소. 사내망(LAN) 공유는 0.0.0.0")
     parser.add_argument("--port", type=int, default=7860, help="포트 (기본 7860)")
+    parser.add_argument("--open", action="store_true",
+                        help="공유 모드에서도 로컬 브라우저를 자동으로 연다")
     args = parser.parse_args()
 
     print(f"[정보] 실행환경 device={DEVICE} / YOLO={YOLO_DEVICE} / 검출={LAYOUT_AVAILABLE} / OCR={OCR_AVAILABLE}", flush=True)
@@ -812,5 +814,6 @@ if __name__ == "__main__":
         print(f"[배포] 사내망 공유 모드. 같은 네트워크에서 http://<내PC IP>:{args.port} 로 접속하세요.", flush=True)
     else:
         print(f"[준비] 웹 서버를 시작합니다. 브라우저가 자동으로 열립니다 (http://127.0.0.1:{args.port})", flush=True)
+    open_browser = True if not args.share else args.open  # 공유 모드는 기본 미오픈, --open 시 로컬 오픈
     build_ui().launch(server_name=args.host, server_port=args.port,
-                      share=args.share, inbrowser=not args.share)
+                      share=args.share, inbrowser=open_browser)
