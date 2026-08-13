@@ -679,7 +679,7 @@ def build_ui():
         gr.Markdown(
             f"# 🚢 선박기기 매뉴얼 하이브리드 검색 (이미지 + 다국어 텍스트)\n"
             f"로컬 전용 · 검출: `{layout_badge}` · OCR: `{ocr_badge}`\n\n"
-            f"이미지: `{MODEL_ID}` · 텍스트(다국어): `{TEXT_MODEL_ID}` · 실행 환경: **{DEVICE.upper()}**"
+            f"이미지: `{MODEL_ID}` · 텍스트(다국어): `{TEXT_MODEL_ID}` · 실행 환경: `{DEVICE.upper()}`"
         )
 
         with gr.Tab("📁 색인 생성"):
