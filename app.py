@@ -807,13 +807,20 @@ if __name__ == "__main__":
                         help="공유 모드에서도 로컬 브라우저를 자동으로 연다")
     args = parser.parse_args()
 
+    # Hugging Face Spaces 환경 자동 감지 (SPACE_ID 존재) → 0.0.0.0 바인딩, share/브라우저 비활성
+    on_spaces = bool(os.environ.get("SPACE_ID"))
+
     print(f"[정보] 실행환경 device={DEVICE} / YOLO={YOLO_DEVICE} / 검출={LAYOUT_AVAILABLE} / OCR={OCR_AVAILABLE}", flush=True)
-    if args.share:
+    if on_spaces:
+        print("[배포] Hugging Face Spaces 환경으로 실행합니다 (0.0.0.0 바인딩).", flush=True)
+    elif args.share:
         print("[배포] 임시 공개 링크(share)를 생성합니다. ⚠️ 사내 매뉴얼은 올리지 마세요(외부 공개됨).", flush=True)
     elif args.host == "0.0.0.0":
         print(f"[배포] 사내망 공유 모드. 같은 네트워크에서 http://<내PC IP>:{args.port} 로 접속하세요.", flush=True)
     else:
         print(f"[준비] 웹 서버를 시작합니다. 브라우저가 자동으로 열립니다 (http://127.0.0.1:{args.port})", flush=True)
-    open_browser = True if not args.share else args.open  # 공유 모드는 기본 미오픈, --open 시 로컬 오픈
-    build_ui().launch(server_name=args.host, server_port=args.port,
-                      share=args.share, inbrowser=open_browser)
+
+    host = "0.0.0.0" if on_spaces else args.host
+    open_browser = False if on_spaces else (True if not args.share else args.open)
+    build_ui().launch(server_name=host, server_port=args.port,
+                      share=(args.share and not on_spaces), inbrowser=open_browser)
