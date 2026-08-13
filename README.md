@@ -174,4 +174,3 @@ marine-manual-search/
 - 개인/연구용 PoC. 사용된 모델의 라이선스는 각 HuggingFace 페이지를 따릅니다.
 - 매뉴얼 PDF·색인 데이터는 저장소에 포함되지 않습니다(`.gitignore`).
 
-> AIFFEL 과제 PoC — "내 도메인에 AI를 적용해 실제 개선을 증명하기".
